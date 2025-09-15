@@ -1,0 +1,22 @@
+--grant permission to postgres
+grant all privileges on database premierleague to postgres;
+
+--create the table to get values from CSV
+create table player_stats( player_name varchar(100),
+nation varchar(50),
+position_played varchar(50),
+age integer,
+matches_played integer,
+starts integer,
+minutes_played float,
+goals float,
+assists float,
+penalties_scored float,
+yellow_cards float,
+red_cards float,
+expected_goals float,
+expected_assists float,
+team_name varchar(100));
+
+--copy the data from CSV
+copy player_stats from 'D:/player_stats.csv' delimiter ',' csv header;
